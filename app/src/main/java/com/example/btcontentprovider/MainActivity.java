@@ -154,3 +154,6 @@ public class MainActivity extends AppCompatActivity {
             cursor.close();
         } else {
             Toast.makeText(this, "No contacts found", Toast.LENGTH_SHORT).show();
+        }
+    }
+}
