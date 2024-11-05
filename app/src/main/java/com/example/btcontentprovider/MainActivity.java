@@ -69,30 +69,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void showCallLog() {
-        ArrayList<String> callLogs = new ArrayList<>();
-        Uri uri = CallLog.Calls.CONTENT_URI;
-        Cursor cursor = getContentResolver().query(uri, null, null, null, null);
-
-        if (cursor != null) {
-            while (cursor.moveToNext()) {
-                String number = cursor.getString(cursor.getColumnIndexOrThrow(CallLog.Calls.NUMBER));
-                String type = cursor.getString(cursor.getColumnIndexOrThrow(CallLog.Calls.TYPE));
-                String date = cursor.getString(cursor.getColumnIndexOrThrow(CallLog.Calls.DATE));
-                String duration = cursor.getString(cursor.getColumnIndexOrThrow(CallLog.Calls.DURATION));
-
-                String log = "Number: " + number + ", Type: " + type + ", Date: " + date + ", Duration: " + duration;
-                callLogs.add(log);
-            }
-            cursor.close();
-        } else {
-            Toast.makeText(this, "No call logs found", Toast.LENGTH_SHORT).show();
-        }
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, callLogs);
-        listViewMessages.setAdapter(adapter);
-    }
-
     private boolean checkPermission(String permission, int requestCode) {
         if (ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED) {
             return true;
@@ -120,6 +96,30 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void showCallLog() {
+        ArrayList<String> callLogs = new ArrayList<>();
+        Uri uri = CallLog.Calls.CONTENT_URI;
+        Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                String number = cursor.getString(cursor.getColumnIndexOrThrow(CallLog.Calls.NUMBER));
+                String type = cursor.getString(cursor.getColumnIndexOrThrow(CallLog.Calls.TYPE));
+                String date = cursor.getString(cursor.getColumnIndexOrThrow(CallLog.Calls.DATE));
+                String duration = cursor.getString(cursor.getColumnIndexOrThrow(CallLog.Calls.DURATION));
+
+                String log = "Number: " + number + ", Type: " + type + ", Date: " + date + ", Duration: " + duration;
+                callLogs.add(log);
+            }
+            cursor.close();
+        } else {
+            Toast.makeText(this, "No call logs found", Toast.LENGTH_SHORT).show();
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, callLogs);
+        listViewMessages.setAdapter(adapter);
     }
 
     private void showMessages() {
