@@ -10,25 +10,39 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="LuuHongNhung_2129"
-        android:textSize="30dp"
+        android:layout_gravity="center"
+        android:text="Lưu Hồng Nhung_22115053122129"
+        android:textSize="20dp"
         android:textStyle="bold"
-        android:textColor="#4B9ECA"/>
+        android:textColor="#5698CA"
+        android:padding="16dp" />
 
     <Button
-        android:id="@+id/btnShowMessages"
+        android:id="@+id/btnshowallcontact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Show Messages"
-        android:textStyle="bold"
-        android:backgroundTint="#4DADAF"/>
+        android:text="Show All Contacts"
+        android:backgroundTint="#5698CA"/>
+
+    <Button
+        android:id="@+id/btnaccesscalllog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Access Call Log"
+        android:backgroundTint="#5698CA"/>
+
+    <Button
+        android:id="@+id/btnaccessmessages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Access Messages"
+        android:backgroundTint="#5698CA"/>
 
     <ListView
         android:id="@+id/listViewMessages"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 </LinearLayout>
